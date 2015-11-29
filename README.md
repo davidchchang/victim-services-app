@@ -8,7 +8,7 @@ Built on React in a day.
 
 Charity: http://www.victimservicestoronto.com/
 
-##Steps
+## Steps
 
 Make sure you have node installed and gulp installed globally
 `npm install gulp -g`
@@ -22,3 +22,7 @@ Make sure you have node installed and gulp installed globally
 `cd final-version`
 
 `gulp`
+
+## Thanks
+
+Many thanks to @mattfairley for hosting a React workshop to get us started: https://github.com/mattfairley/react-workshop
