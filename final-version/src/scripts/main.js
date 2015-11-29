@@ -47,7 +47,7 @@ var WeatherApp = React.createClass({
 
     return (
       <div className="app-container">
-        <h1>React forecast app</h1>
+        <h1>Onboarding</h1>
         <CityInput onSubmit={this.getData} />
         {this.state.city ? 
           <button onClick={this.clearForecast}>Clear</button> 

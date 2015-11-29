@@ -29,13 +29,19 @@ gulp.task('serve', ['build'], function(){
 	});
 });
 
+gulp.task('images', function(){
+  gulp.src('./src/images/*.html')
+    .pipe(gulp.dest('compiled/images/'))
+    .pipe(reload({stream: true}))
+});
+
 gulp.task('styles', function(){
 	gulp.src('./src/styles/main.scss')
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(gulp.dest('./compiled/css/'))
 	.pipe(reload({stream: true}))
-})
+});
 
 function handleErrors() {
 	notify.onError({
@@ -43,7 +49,7 @@ function handleErrors() {
 		message: '<%= error.message %>'
 	}).apply(this.args);
 	this.emit('end');
-};
+}
 
 function buildScript(file, watch) {
 	var props = {
@@ -86,11 +92,12 @@ gulp.task('scripts', function() {
   return buildScript('main.js', false); // this will once run once because we set watch to false
 });
 
-gulp.task('build', ['html', 'scripts', 'styles']);
+gulp.task('build', ['html', 'scripts', 'styles', 'images']);
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['serve'], function() {
   gulp.watch('src/styles/**/*', ['styles']); // gulp watch for scss changes
+  gulp.watch('src/images/**/*', ['images']); // gulp watch for images changes
   gulp.watch('src/*.html', ['html']); // if we change the HTML, change it
   return buildScript('main.js', true); // browserify watch for JS changes
 });
