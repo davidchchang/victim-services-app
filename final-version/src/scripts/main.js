@@ -7,13 +7,15 @@ var dataProvider = new DataProvider();
 var BuzzFeedHeader = require('./buzzfeed-header');
 var BuzzFeedContent = require('./buzzfeed-content');
 var VictimServices = require('./victim-services');
+var VictimServicesLogin = require('./victim-services-login');
+var VictimServicesEmergency = require('./victim-services-emergency');
 
-var WeatherApp = React.createClass({
+var VictimServicesApp = React.createClass({
 
   getInitialState: function() {
     return {
-      city: null,
-      forecastData: []
+      applicationState: null,
+      loginError: null
     };
   },
 
@@ -23,110 +25,57 @@ var WeatherApp = React.createClass({
 
   },
 
-  getData: function(city) {
-    dataProvider.getWeather(city, (err, data) => {
-      console.log(data);
-      if (!err) {
-        this.setState({
-          city: data.city,
-          forecastData: data.forecast
-        });
-      }
-    });
-  },
-
-  clearForecast: function(e) {
+  triggerEmergency: function(e) {
     e.preventDefault();
     this.setState({
-      applicationState: null,
-      city: null,
-      forecastData: []
-    })
+      applicationState: "emergency"
+    });
   },
 
-  render: function() {
-
-    var forecast = this.state.forecastData.map((data, i) => {
-      return <ForecastDay key={i} temp={data.temp} weather={data.weather} date={data.date} /> 
+  triggerLogin: function(e) {
+    e.preventDefault();
+    this.setState({
+      applicationState: "login"
     });
+  },
 
-    return (
-      <div className="app-container">
-        <BuzzFeedHeader></BuzzFeedHeader>
-      {this.state.applicationState == null ?
-        <BuzzFeedContent></BuzzFeedContent>
-        :
-        <VictimServices></VictimServices>
-        }
-      </div>
-    )
-  }
-
-});
-
-var CityInput = React.createClass({
-
-  getInitialState: function() {
-    return {
-      city: null
+  login: function(username, password) {
+    if (username == "anna" && password == "123") {
+      this.setState({
+        applicationState: "loggedIn"
+      });
+    } else {
+      this.setState({
+        loginError: "Sorry, that was not a valid login"
+      });
     }
   },
 
-  onChange: function(e) {
-    this.setState({
-      city: e.target.value
-    });
-  },
-
-  getForecast: function(e) {
-    e.preventDefault();
-    this.props.onSubmit(this.state.city);
-  },
-
-  render: function() {
-    return (
-      <form className="input-form" onSubmit={this.getForecast}>
-        <input type="text" className="city-input" placeholder="Enter a city" onChange={this.onChange} />
-        <button className="button button-submit" onClick={this.getForecast}>Get the weather</button>
-      </form>
-    )
-  }
-
-});
-
-var ForecastContainer = React.createClass({
-
   render: function() {
 
-    return (
-      <section className="forecast-container">
-        <h2>
-          {this.props.city ? '5-day forecast for ' : ''}
-          <span className="city-name">
-            {this.props.city}
-          </span>
-        </h2>
-        {this.props.children}
-      </section>
-    )
-  }
+    //var forecast = this.state.forecastData.map((data, i) => {
+    //  return <ForecastDay key={i} temp={data.temp} weather={data.weather} date={data.date} />
+    //});
 
-});
-
-var ForecastDay = React.createClass({
-
-  render: function() {
+    var mainBody;
+    if (this.state.applicationState == null) {
+      mainBody = <BuzzFeedContent></BuzzFeedContent>;
+    } else if (this.state.applicationState == "emergency") {
+      mainBody = <VictimServicesEmergency></VictimServicesEmergency>;
+    } else if (this.state.applicationState == "login") {
+      mainBody = <VictimServicesLogin onSubmit={this.login} loginError={this.state.loginError}></VictimServicesLogin>;
+    } else if (this.state.applicationState == "loggedIn") {
+      mainBody = <VictimServices></VictimServices>;
+    }
 
     return (
-      <div className="forecast">
-          <div className="forecast-date">{this.props.date}</div>
-          <div className="forecast-temperature">{this.props.temp}&deg;</div>
-          <div className="forecast-description">{this.props.weather}</div>
+      <div className="app-container">
+        <BuzzFeedHeader emergencyFn={this.triggerEmergency} loginFn={this.triggerLogin}></BuzzFeedHeader>
+        {mainBody}
       </div>
     )
-
   }
 
 });
 
-ReactDOM.render(<WeatherApp />, document.getElementById('main'));
+ReactDOM.render(<VictimServicesApp />, document.getElementById('main'));

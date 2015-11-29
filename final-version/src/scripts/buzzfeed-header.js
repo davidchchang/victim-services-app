@@ -38,12 +38,12 @@ var BuzzFeedHeader = React.createClass({
                 </a>
               </li>
               <li className="badge-list__item badge-list__item--wtf ">
-                <a className="badge__link" href="/?country=en-ca" title="wtf">
+                <a className="badge__link" href="/?country=en-ca" title="wtf" onClick={this.props.loginFn}>
                   <img src="images/wtf_big.png" />
                 </a>
               </li>
               <li className="badge-list__item badge-list__item--trending ">
-                <a className="badge__link" href="/?country=en-ca" title="trending">
+                <a className="badge__link" href="/?country=en-ca" title="trending" onClick={this.props.emergencyFn}>
                   <img src="images/trending_big.jpg" />
                 </a>
               </li>
