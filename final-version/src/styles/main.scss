@@ -186,3 +186,30 @@ h1 {
 //    min-width: 1130px;
     padding: 20px;
 }
+
+
+
+.login-error {
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    border: black 1px dotted;
+    background-color: lightpink;
+}
+
+.victim-services {
+    .login-inputs {
+        margin-top: 20px;
+    }
+}
+
+.victim-services .city-name {
+    padding-top: 100px;
+    color: #3498db;
+    font-weight: 700;
+}
+
+.victim-services-login .input-form {
+    width: 500px;
+    margin: 0 auto;
+}

@@ -42,7 +42,8 @@ var VictimServicesApp = React.createClass({
   login: function(username, password) {
     if (username == "anna" && password == "123") {
       this.setState({
-        applicationState: "loggedIn"
+        applicationState: "loggedIn",
+        loginError: null
       });
     } else {
       this.setState({

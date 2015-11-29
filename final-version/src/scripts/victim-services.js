@@ -6,6 +6,7 @@ var VictimServices = React.createClass({
   render: function () {
     return (
       <div className="victim-services">
+        Landing portal goes here
         </div>
     )
   }

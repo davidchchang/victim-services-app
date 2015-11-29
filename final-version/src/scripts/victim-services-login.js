@@ -30,17 +30,19 @@ var VictimServicesLogin = React.createClass({
   render: function() {
     return (
       <div className="victim-services victim-services-login">
-      {this.props.loginError != null ?
-        <div className="login-error">
-          {this.props.loginError}
-        </div>
-        :
-        null
-        }
         <form className="input-form" onSubmit={this.getForecast}>
+          {this.props.loginError != null ?
+            <div className="login-error">
+          {this.props.loginError}
+            </div>
+              :
+            null
+            }
+          <div className="login-inputs">
           <input type="text" className="city-input" placeholder="Enter your username" onChange={this.onUsernameChange} />
           <input type="password" className="city-input" placeholder="Enter your password" onChange={this.onPasswordChange} />
           <button className="button button-submit" onClick={this.login}>Login</button>
+            </div>
         </form>
       </div>
     )
