@@ -5,6 +5,8 @@ var DataProvider = require('./data-provider');
 var dataProvider = new DataProvider();
 
 var BuzzFeedHeader = require('./buzzfeed-header');
+var BuzzFeedContent = require('./buzzfeed-content');
+var VictimServices = require('./victim-services');
 
 var WeatherApp = React.createClass({
 
@@ -36,6 +38,7 @@ var WeatherApp = React.createClass({
   clearForecast: function(e) {
     e.preventDefault();
     this.setState({
+      applicationState: null,
       city: null,
       forecastData: []
     })
@@ -50,16 +53,11 @@ var WeatherApp = React.createClass({
     return (
       <div className="app-container">
         <BuzzFeedHeader></BuzzFeedHeader>
-        <h1>Onboarding</h1>
-        <CityInput onSubmit={this.getData} />
-        {this.state.city ? 
-          <button onClick={this.clearForecast}>Clear</button> 
-          : 
-          null
+      {this.state.applicationState == null ?
+        <BuzzFeedContent></BuzzFeedContent>
+        :
+        <VictimServices></VictimServices>
         }
-        <ForecastContainer city={this.state.city}>
-          {forecast}
-        </ForecastContainer>
       </div>
     )
   }

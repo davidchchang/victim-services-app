@@ -43,7 +43,6 @@ body {
 }
 main {
   padding: 0 20px;
-  background-image: url("../images/BuzzFeed.png");
 }
 
 input[type="text"] {
@@ -123,4 +122,30 @@ h1 {
 .city-name {
   color: #3498db;
   font-weight: 700;
+}
+
+/* BuzzFeed styling */
+.page-header__logo {
+    width: 100%;
+}
+
+.page-header__logo img.logo {
+    width: 300px;
+    float: left;
+}
+
+.page-header__logo span {
+    float: left;
+}
+
+.badge-list {
+    float: right;
+    width: 800px;
+}
+
+.badge-list__item img {
+    width: 80px;
+    height: 80px;
+    float: left;
+    display: block;
 }
