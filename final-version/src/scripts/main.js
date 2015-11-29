@@ -4,6 +4,8 @@ var ReactDOM = require('react-dom');
 var DataProvider = require('./data-provider');
 var dataProvider = new DataProvider();
 
+var BuzzFeedHeader = require('./buzzfeed-header');
+
 var WeatherApp = React.createClass({
 
   getInitialState: function() {
@@ -47,6 +49,7 @@ var WeatherApp = React.createClass({
 
     return (
       <div className="app-container">
+        <BuzzFeedHeader></BuzzFeedHeader>
         <h1>Onboarding</h1>
         <CityInput onSubmit={this.getData} />
         {this.state.city ? 

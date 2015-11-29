@@ -30,9 +30,12 @@ gulp.task('serve', ['build'], function(){
 });
 
 gulp.task('images', function(){
-  gulp.src('./src/images/*.html')
+  gulp.src('./src/images/*.png')
     .pipe(gulp.dest('compiled/images/'))
-    .pipe(reload({stream: true}))
+    .pipe(reload({stream: true}));
+  gulp.src('./src/images/*.jpg')
+    .pipe(gulp.dest('compiled/images/'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('styles', function(){
