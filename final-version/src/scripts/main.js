@@ -66,7 +66,7 @@ var VictimServicesApp = React.createClass({
     } else if (this.state.applicationState == "login") {
       mainBody = <VictimServicesLogin onSubmit={this.login} loginError={this.state.loginError}></VictimServicesLogin>;
     } else if (this.state.applicationState == "loggedIn") {
-      mainBody = <VictimServices></VictimServices>;
+      mainBody = <VictimServices emergencyFn={this.triggerEmergency}></VictimServices>;
     }
 
     return (

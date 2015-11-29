@@ -213,3 +213,30 @@ h1 {
     width: 500px;
     margin: 0 auto;
 }
+
+input[type="password"] {
+    display: inline-block;
+    padding: 9px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    margin-right: 20px;
+    font-family: 'lato', sans-serif; }
+
+.victim-services-nav {
+    width: 200px;
+    float: left;
+    background-color: #eaeaea;
+    a {
+        display: block;
+        padding: 20px;
+    }
+    a.active {
+        background-color: #ffffff;
+    }
+}
+
+.victim-services-container {
+    float: left;
+    margin-left: 30px;
+}
