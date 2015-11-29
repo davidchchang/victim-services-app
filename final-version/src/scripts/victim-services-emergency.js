@@ -17,8 +17,9 @@ var VictimServicesEmergency = React.createClass({
 
   render: function() {
     return (
-      <div className="victim-services-emergency">
-      An incident report has been filed. For your convenience, audio recording has been enabled.
+      <div className="victim-services victim-services-emergency">
+      <p>An incident report has been filed. For your convenience, audio recording has been enabled.</p>
+        <p></p>
       {this.state.recording ?
         <button className="button button-submit" onClick={this.stopRecording}>Stop recording</button>
         :

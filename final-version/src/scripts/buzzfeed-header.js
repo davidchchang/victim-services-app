@@ -12,9 +12,7 @@ var BuzzFeedHeader = React.createClass({
               <img className="logo" src="images/BuzzFeed.jpg" />
             </a>
             <span className="page-header__tagline">
-              <a href="/">News</a>
-              <a href="/">Buzz</a>
-              <a href="/">Life</a>
+              <a href="/">News Buzz Life</a>
             </span>
             <ul className="badge-list">
               <li className="badge-list__item badge-list__item--lol">

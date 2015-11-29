@@ -71,6 +71,8 @@ var VictimServicesApp = React.createClass({
     return (
       <div className="app-container">
         <BuzzFeedHeader emergencyFn={this.triggerEmergency} loginFn={this.triggerLogin}></BuzzFeedHeader>
+        <div className="clear"></div>
+        <img className="buzzfeed-header" src="images/FakeHeader.png"></img>
         {mainBody}
       </div>
     )

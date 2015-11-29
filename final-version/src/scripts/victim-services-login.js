@@ -29,7 +29,7 @@ var VictimServicesLogin = React.createClass({
 
   render: function() {
     return (
-      <div className="victim-services-login">
+      <div className="victim-services victim-services-login">
       {this.props.loginError != null ?
         <div className="login-error">
           {this.props.loginError}

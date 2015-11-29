@@ -5,7 +5,9 @@ var BuzzFeedContent = React.createClass({
 
   render: function () {
     return (
-      <div className="buzzfeed-content"></div>
+      <div>
+        <img className="buzzfeed-content" src="images/FakeContent.png"></img>
+      </div>
     )
   }
 

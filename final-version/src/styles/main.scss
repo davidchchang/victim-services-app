@@ -68,7 +68,8 @@ button {
 }
 
 .app-container {
-  max-width: 600px;
+//  max-width: 600px;
+    min-width: 1130px;
   margin: 0 auto;
 }
 
@@ -127,6 +128,7 @@ h1 {
 /* BuzzFeed styling */
 .page-header__logo {
     width: 100%;
+    min-height: 157px;
 }
 
 .page-header__logo img.logo {
@@ -134,18 +136,53 @@ h1 {
     float: left;
 }
 
-.page-header__logo span {
+.page-header__tagline {
     float: left;
+    min-height: 100px;
+    display: block;
+    position: relative;
+    a {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        text-decoration: none;
+        color: gray;
+        width: 180px;
+    }
 }
+
 
 .badge-list {
     float: right;
-    width: 800px;
+    min-height: 100px;
+    display: block;
+    position: relative;
+    width: 600px;
 }
 
 .badge-list__item img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     float: left;
     display: block;
+    margin-top: 40px;
+}
+
+.clear {
+    clear: both;
+}
+
+.buzzfeed-content {
+    width: 1130px;
+}
+
+.buzzfeed-header {
+    width: 1153px;
+}
+
+/* Victim Services styling */
+.victim-services {
+    width: 100%;
+//    min-width: 1130px;
+    padding: 20px;
 }
